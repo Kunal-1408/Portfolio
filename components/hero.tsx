@@ -97,8 +97,8 @@ export default function HeroGeometric({
   }
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#050505]">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.15] via-transparent to-rose-500/[0.15] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape
@@ -106,7 +106,7 @@ export default function HeroGeometric({
           width={600}
           height={140}
           rotate={12}
-          gradient="from-indigo-500/[0.15]"
+          gradient="from-indigo-500/[0.25]"
           className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
         />
 
@@ -115,7 +115,7 @@ export default function HeroGeometric({
           width={500}
           height={120}
           rotate={-15}
-          gradient="from-rose-500/[0.15]"
+          gradient="from-rose-500/[0.25]"
           className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
         />
 
@@ -124,7 +124,7 @@ export default function HeroGeometric({
           width={300}
           height={80}
           rotate={-8}
-          gradient="from-violet-500/[0.15]"
+          gradient="from-violet-500/[0.25]"
           className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
         />
 
@@ -133,7 +133,7 @@ export default function HeroGeometric({
           width={200}
           height={60}
           rotate={20}
-          gradient="from-amber-500/[0.15]"
+          gradient="from-amber-500/[0.25]"
           className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
         />
 
@@ -142,7 +142,7 @@ export default function HeroGeometric({
           width={150}
           height={40}
           rotate={-25}
-          gradient="from-cyan-500/[0.15]"
+          gradient="from-cyan-500/[0.25]"
           className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
         />
       </div>
@@ -155,13 +155,12 @@ export default function HeroGeometric({
             initial="hidden"
             animate="visible"
             onClick={() => {
-              // Add smooth scroll to next section
               const nextSection = document.getElementById("next-section")
               if (nextSection) {
                 nextSection.scrollIntoView({ behavior: "smooth" })
               }
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12 hover:bg-white/[0.08] transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.1] border border-white/[0.2] mb-8 md:mb-12 hover:bg-white/[0.15] transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -173,19 +172,17 @@ export default function HeroGeometric({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-white/60"
+              className="text-white/80"
             >
               <path d="M12 5v14" />
               <path d="m19 12-7 7-7-7" />
             </svg>
-            <span className="text-sm text-white/60 tracking-wide">Let's Begin!</span>
+            <span className="text-sm text-white/80 tracking-wide">Let&apos;s Begin!</span>
           </motion.button>
 
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
             <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                Make Your Vision
-              </span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/90">{title1}</span>
               <br />
               <span
                 className={cn(
@@ -194,20 +191,20 @@ export default function HeroGeometric({
                   "text-4xl sm:text-6xl md:text-8xl",
                 )}
               >
-                Realities
+                {title2}
               </span>
             </h1>
           </motion.div>
 
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-white/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
               Crafting exceptional digital experiences through innovative design and cutting-edge technology.
             </p>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+      
     </div>
   )
 }
