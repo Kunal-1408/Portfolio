@@ -11,7 +11,7 @@ export const GoogleGeminiEffect = ({
   className?: string
 }) => {
   return (
-    <div className={cn("absolute inset-0", className)}>
+    <div className={cn("h-full w-full", className)}>
       <svg
         width="100%"
         height="100%"

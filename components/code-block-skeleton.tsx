@@ -1,13 +1,25 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { CodeBlock } from "./code-block"
 
 export function CodeBlockSkeleton() {
   const [hasInteracted, setHasInteracted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  const handleMouseEnter = () => {
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const handleInteraction = () => {
     if (!hasInteracted) {
       setHasInteracted(true)
     }
@@ -31,7 +43,7 @@ function Counter() {
 }`
 
   return (
-    <div className="group relative" onMouseEnter={handleMouseEnter}>
+    <div className="group relative" onMouseEnter={handleInteraction} onClick={handleInteraction}>
       <AnimatePresence initial={false} mode="wait">
         {!hasInteracted ? (
           <motion.div
@@ -52,7 +64,9 @@ function Counter() {
             </div>
             <div className="mt-4">
               <h3 className="text-lg font-semibold text-white">Having trouble coding?</h3>
-              <p className="text-sm text-neutral-400 mt-1">Hover me, I got a solution for you</p>
+              <p className="text-sm text-neutral-400 mt-1">
+                {isMobile ? "Tap me, I got a solution for you" : "Hover me, I got a solution for you"}
+              </p>
             </div>
           </motion.div>
         ) : (

@@ -87,36 +87,37 @@ export default function SpotlightNewDemo() {
   }, [controls, isInView])
 
   return (
-    <div className="min-h-screen w-full rounded-md flex flex-col items-center justify-start bg-black antialiased relative overflow-hidden">
-      <Spotlight />
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={containerVariants}
-        className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0"
-      >
-        <motion.h1
-          variants={headingVariants}
-          className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-8"
+    <div className="min-h-screen w-full rounded-md flex flex-col items-center justify-start bg-transparent antialiased relative overflow-hidden">
+      <div className="relative w-full h-full">
+        <Spotlight />
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+          className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0"
         >
-          My Projects
-        </motion.h1>
-        <motion.p
-          variants={headingVariants}
-          className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto mb-12"
-        >
-          Explore my latest projects showcasing various technologies and design patterns.
-        </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div key={index} custom={index} variants={cardVariants} initial="hidden" animate={controls}>
-              <ProjectCard {...project} />
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+          <motion.h1
+            variants={headingVariants}
+            className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 mb-8"
+          >
+            My Projects
+          </motion.h1>
+          <motion.p
+            variants={headingVariants}
+            className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto mb-12"
+          >
+            Explore my latest projects showcasing various technologies and design patterns.
+          </motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <motion.div key={index} custom={index} variants={cardVariants} initial="hidden" animate={controls}>
+                <ProjectCard {...project} />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </div>
   )
 }
-

@@ -1,23 +1,31 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export function TerminalSkeleton() {
   const [hasInteracted, setHasInteracted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  const handleMouseEnter = () => {
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const handleInteraction = () => {
     if (!hasInteracted) {
       setHasInteracted(true)
     }
   }
 
   return (
-    <div
-      className="group relative w-full"
-      onMouseEnter={handleMouseEnter}
-      onClick={() => setHasInteracted(true)} // Add touch support for mobile
-    >
+    <div className="group relative w-full" onMouseEnter={handleInteraction} onClick={handleInteraction}>
       <AnimatePresence initial={false} mode="wait">
         {!hasInteracted ? (
           <motion.div
@@ -79,7 +87,7 @@ export function TerminalSkeleton() {
             <div className="mt-4 space-y-1.5">
               <h3 className="text-base md:text-xl font-semibold text-white">Tired of waiting to compile?</h3>
               <p className="text-xs md:text-sm text-neutral-500">
-                {window.innerWidth < 768 ? "Tap to see the magic" : "Hover to see the magic"}
+                {isMobile ? "Tap to see the magic" : "Hover to see the magic"}
               </p>
             </div>
           </motion.div>

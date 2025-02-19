@@ -97,7 +97,7 @@ export default function HeroGeometric({
   }
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#050505]">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-transparent">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.15] via-transparent to-rose-500/[0.15] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">

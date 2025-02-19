@@ -11,7 +11,6 @@ const Globe = ({ className }: { className?: string }) => {
 
   useEffect(() => {
     const updateSize = () => {
-      // Make globe smaller on mobile
       setWidth(window.innerWidth < 768 ? 400 : 600)
     }
 
@@ -39,7 +38,6 @@ const Globe = ({ className }: { className?: string }) => {
       markerColor: [0.1, 0.8, 1],
       glowColor: [1, 1, 1],
       markers: [
-        // longitude latitude
         { location: [37.7595, -122.4367], size: 0.03 },
         { location: [40.7128, -74.006], size: 0.1 },
       ],
@@ -70,19 +68,27 @@ const Globe = ({ className }: { className?: string }) => {
 
 export function GlobeSkeleton() {
   const [hasInteracted, setHasInteracted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  const handleMouseEnter = () => {
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const handleInteraction = () => {
     if (!hasInteracted) {
       setHasInteracted(true)
     }
   }
 
   return (
-    <div
-      className="group relative h-full"
-      onMouseEnter={handleMouseEnter}
-      onClick={() => setHasInteracted(true)} // Add touch support for mobile
-    >
+    <div className="group relative h-full" onMouseEnter={handleInteraction} onClick={handleInteraction}>
       <AnimatePresence initial={false} mode="wait">
         {!hasInteracted ? (
           <motion.div
@@ -98,7 +104,7 @@ export function GlobeSkeleton() {
               <div className="mt-4 text-center">
                 <h3 className="text-base md:text-lg font-semibold text-white">Heard you like 3D?</h3>
                 <p className="text-xs md:text-sm text-neutral-400 mt-1">
-                  {window.innerWidth < 768 ? "Tap to find out" : "Hover to find out"}
+                  {isMobile ? "Tap to find out" : "Hover to find out"}
                 </p>
               </div>
             </div>

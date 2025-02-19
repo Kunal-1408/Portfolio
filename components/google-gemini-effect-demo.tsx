@@ -2,7 +2,7 @@
 import { useInView } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect"
-import AnimatedModalDemo from "@/components/ui/animated-modal-demo"
+import ConnectForm from "@/components/ui/connect"
 
 export default function GoogleGeminiEffectDemo() {
   const ref = useRef(null)
@@ -56,8 +56,8 @@ export default function GoogleGeminiEffectDemo() {
       <div className="absolute inset-0">
         <GoogleGeminiEffect pathLengths={pathLengths} />
       </div>
-      <div className="absolute inset-0 flex items-center justify-center translate-y-14" style={{ zIndex: 20 }}>
-        <AnimatedModalDemo />
+      <div className="absolute inset-0 flex items-center justify-center translate-y-16">
+        <ConnectForm />
       </div>
     </div>
   )

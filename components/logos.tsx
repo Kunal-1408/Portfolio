@@ -21,73 +21,73 @@ export default function FrameworkGrid() {
   const logos: Logo[] = [
     {
       id: "astro",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/node.svg",
       alt: "Lightning bolt",
-      color: "#ff5d01",
+      color: "#a3ff33",
     },
     {
       id: "react",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/react.svg",
       alt: "React",
       color: "#61dafb",
     },
     {
       id: "angular",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/python.svg",
       alt: "Angular",
-      color: "#dd0031",
+      color: "#3369ff",
     },
     {
       id: "vue",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/typescript.svg",
       alt: "Vue.js",
-      color: "#42b883",
+      color: "#1811d6",
     },
     {
       id: "sphere",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/js.png",
       alt: "Sphere icon",
-      color: "#4a9eff",
+      color: "#f2fa14",
     },
     {
       id: "red-circle",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/NestJS.svg",
       alt: "Red circular icon",
       color: "#ff4444",
     },
     {
       id: "purple-circle",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/nextjs.svg",
       alt: "Purple circular icon",
-      color: "#8b5cf6",
+      color: "#f2f5f5",
     },
     {
       id: "a-shape",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/mongo.svg",
       alt: "A-shaped icon",
-      color: "#ffffff",
+      color: "#0ad111",
     },
     {
       id: "r-shape",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/SQL.svg",
       alt: "R-shaped icon",
       color: "#0070f3",
     },
     {
       id: "green-triangle",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/docker.svg",
       alt: "Green triangular icon",
       color: "#3ecf8e",
     },
     {
       id: "firebase",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/aws.svg",
       alt: "Firebase icon",
       color: "#ffca28",
     },
     {
       id: "nodejs",
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cloe-P8VoYWqBupPoMaKJWnZ5NVkhU493wA.png",
+      src: "/nginx.svg",
       alt: "Node.js icon",
       color: "#68a063",
     },
@@ -125,14 +125,17 @@ export default function FrameworkGrid() {
     <div className="bg-transparent min-h-screen py-16 px-4 relative [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
       {/* <div className="absolute pointer-events-none z-20 inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_90%,black)]"></div> */}
       <div className="max-w-full mx-auto text-center relative z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-neutral-200 text-5xl md:text-4xl font-medium mb-16"
-        >
-          Fueled by your favorite tools and frameworks ⚡
-        </motion.h1>
+      <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl lg:text-5xl font-bold mb-8 mx-auto max-w-3xl"
+          >
+            <span className="bg-gradient-to-r from-blue-300 to-purple-400 text-transparent bg-clip-text">
+              Fueled by your favorite tools and frameworks
+            </span>
+            <span className="ml-2 inline-block">⚡</span>
+          </motion.h2>
 
         <div className="hidden lg:block">{renderGrid(desktopLayout, 15)}</div>
         <div className="hidden md:block lg:hidden">{renderGrid(tabletLayout, 11)}</div>
