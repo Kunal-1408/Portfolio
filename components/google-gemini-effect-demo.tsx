@@ -53,6 +53,11 @@ export default function GoogleGeminiEffectDemo() {
       className="min-h-[100vh] bg-transparent w-full dark:border dark:border-white/[0.1] rounded-md relative overflow-hidden"
       ref={ref}
     >
+      <div className="absolute inset-0 items-center justify-center flex translate-y-[-16rem] ">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-300 to-purple-400 text-transparent bg-clip-text">
+          Let&apos;s Connect
+        </h1>
+      </div>
       <div className="absolute inset-0">
         <GoogleGeminiEffect pathLengths={pathLengths} />
       </div>

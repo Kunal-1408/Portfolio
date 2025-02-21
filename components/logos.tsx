@@ -122,7 +122,7 @@ export default function FrameworkGrid() {
   const mobileLayout = createResponsiveRows(12, 3).map((row) => createRow(row, 7))
 
   return (
-    <div className="bg-transparent min-h-screen py-16 px-4 relative [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+    <div className="bg-transparent min-h-screen py-10 px-4 relative [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
       {/* <div className="absolute pointer-events-none z-20 inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_90%,black)]"></div> */}
       <div className="max-w-full mx-auto text-center relative z-10">
       <motion.h2

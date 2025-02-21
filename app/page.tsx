@@ -4,6 +4,7 @@ import GlowingEffectDemoSecond from "@/components/glowing-effect-demo-2";
 import FrameworkGrid from "@/components/logos";
 import GoogleGeminiEffectDemo from "@/components/google-gemini-effect-demo";
 import SpotlightNewDemo from "@/components/spotlight-new-demo";
+import TestimonialsGrid from "@/components/testimonials";
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
               </div>
               <div className="py-5 w-full">
               <SpotlightNewDemo/>
+              </div>
+              <div>
+                <TestimonialsGrid/>
               </div>
 
               

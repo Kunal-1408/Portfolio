@@ -1,46 +1,92 @@
 "use client"
+import { useState } from "react"
+import type React from "react"
+
 import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { GlowingEffect } from "./glowing-effect"
+import FormSubmissionSuccess from "./confirmation"
 
 export default function ConnectForm() {
+  const [showConfirmation, setShowConfirmation] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setShowConfirmation(true)
+  }
+
+  if (showConfirmation) {
+    return <FormSubmissionSuccess />
+  }
+
   return (
-    <div className="bg-zinc-900/70 backdrop-blur-sm p-8 rounded-lg w-full max-w-md">
-      <h2 className="text-3xl font-bold text-center mb-6 bg-gradient-to-r from-blue-300 to-purple-400 text-transparent bg-clip-text">
-        Let&apos;s connect
-      </h2>
-      <form className="space-y-4">
-        <div>
-          <Input
-            type="text"
-            placeholder="Your good name my lord.😊"
-            className="w-full bg-black/40 text-white placeholder-gray-500"
-          />
+    <div className="bg-zinc-800/60 backdrop-blur-sm p-12 rounded-2xl w-full max-w-md">
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div className="relative">
+          <label className="block text-zinc-400 text-sm mb-2">Name</label>
+          <div className="relative">
+            <GlowingEffect
+              blur={0}
+              borderWidth={3}
+              spread={80}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+            />
+            <Input
+              type="text"
+              placeholder="Your good name my lord."
+              className="w-full bg-black/40 text-white placeholder-gray-500"
+              required
+            />
+          </div>
         </div>
-        <div>
-          <Input
-            type="email"
-            placeholder="your humble domain"
-            className="w-full bg-black/25 text-white placeholder-gray-500"
-          />
+
+        <div className="relative">
+          <label className="block text-zinc-400 text-sm mb-2">Email</label>
+          <div className="relative">
+            <GlowingEffect
+              blur={0}
+              borderWidth={3}
+              spread={80}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+            />
+            <Input
+              type="email"
+              placeholder="your humble domain"
+              className="w-full bg-black/25 text-white placeholder-gray-500"
+              required
+            />
+          </div>
         </div>
-        <div>
-        <GlowingEffect
-            blur={0}
-            borderWidth={3}
-            spread={80}
-            glow={true}
-            disabled={false}
-            proximity={64}
-            inactiveZone={0.01}
-          />
-          <Textarea
-            placeholder="Your wish is my command"
-            className="w-full bg-black/30 text-white placeholder-gray-500 min-h-[100px]"
-          />
+
+        <div className="relative">
+          <label className="block text-zinc-400 text-sm mb-2">Message</label>
+          <div className="relative">
+            <GlowingEffect
+              blur={0}
+              borderWidth={3}
+              spread={80}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+            />
+            <Textarea
+              placeholder="Your wish is my command"
+              className="w-full bg-black/30 text-white placeholder-gray-500 min-h-[150px]"
+              required
+            />
+          </div>
         </div>
+
         <motion.button
+          type="submit"
           className="bg-black text-white dark:bg-white dark:text-black text-sm px-4 py-2 rounded-md border border-black w-full group/submit-btn overflow-hidden relative"
           whileHover="hover"
           initial="initial"
